@@ -18,7 +18,7 @@ public class Practice {
 
         Scanner scanner = new Scanner(System.in);
 
-        String students = "";
+        String students;
         int[] scores;
         int num;
         int bestScore = 0;
@@ -51,9 +51,9 @@ public class Practice {
                         System.out.print(menu);
                         String scan3 = scanner.nextLine();
                         if (scan3.equals("4")) {
-                            for (int k = 0; k < scores.length; k++) {
-                                if (bestScore <= scores[k]) {
-                                    bestScore = scores[k];
+                            for (int score : scores) {
+                                if (bestScore <= score) {
+                                    bestScore = score;
                                 }
                             }
                             System.out.println(bestScore);
@@ -61,7 +61,7 @@ public class Practice {
                             String scan4 = scanner.nextLine();
                             if (scan4.equals("5")) {
                                 System.out.println("프로그램 종료");
-                                break run;
+                                break;
                             }
                         }
                     }
