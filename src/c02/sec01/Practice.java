@@ -23,7 +23,6 @@ public class Practice {
         int num;
         int bestScore = 0;
 
-        run:
         while (true) {
             System.out.print(menu);
             String scan0 = scanner.nextLine();
