@@ -10,4 +10,12 @@ public class FirstTimeClass {
         this.age = age;
     }
 
+    public FirstTimeClass(String name) {
+        this.name = name;
+    }
+
+    public FirstTimeClass(int age) {
+        this.age = age;
+    }
+
 }
