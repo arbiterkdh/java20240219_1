@@ -5,9 +5,9 @@ public class FirstTimeClass {
     String name;
     int age;
 
-    public FirstTimeClass(String n, int a) {
-        name = n;
-        age = a;
+    public FirstTimeClass(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 
 }
