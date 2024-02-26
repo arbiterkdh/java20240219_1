@@ -1,7 +1,7 @@
 package ch02.sec01;
 
 public class FirstTimeClass {
-    String nation = "대한민국";
+    String nation = "한국";
     String name;
     int age;
 
