@@ -15,6 +15,7 @@ public class C06CallByValue {
 
 class C06CarCenter {
     void changeName(C06Car car) {
+        car = new C06Car();
         car.name = "kia";
     }
 }
