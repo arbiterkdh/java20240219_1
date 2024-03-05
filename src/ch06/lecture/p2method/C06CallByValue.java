@@ -17,6 +17,7 @@ class C06CarCenter {
     void changeName(C06Car car) {
         car = new C06Car();
         car.name = "kia";
+        System.out.println(car.name);
     }
 }
 

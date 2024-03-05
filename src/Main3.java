@@ -5,7 +5,9 @@ public class Main3 {
         System.out.println("345345");
         System.out.println("456456");
         System.out.println("567567");
+        System.out.println("678678");
         System.out.println("789789");
+        System.out.println("890890");
 
     }
 }

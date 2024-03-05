@@ -1,4 +1,4 @@
-package c02.sec01;
+package ch02.sec01;
 
 import java.util.Scanner;
 
