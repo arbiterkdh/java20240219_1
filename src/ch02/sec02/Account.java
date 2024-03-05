@@ -8,8 +8,6 @@ public class Account {
     public String asnP;
     private String host;
     private int initialDeposit;
-    private int deposit;
-    private int withdraw;
 
     public void setMakeAccount() {
         System.out.print("계좌번호 :");
@@ -28,14 +26,14 @@ public class Account {
 
     public void setDeposit() {
         System.out.print("예금액 :");
-        this.deposit = Integer.parseInt(scanner.nextLine());
-        this.initialDeposit += this.deposit;
+        int deposit = Integer.parseInt(scanner.nextLine());
+        this.initialDeposit += deposit;
     }
 
     public void setWithdraw() {
         System.out.print("출금액 :");
-        this.withdraw = Integer.parseInt(scanner.nextLine());
-        this.initialDeposit -= this.withdraw;
+        int withdraw = Integer.parseInt(scanner.nextLine());
+        this.initialDeposit -= withdraw;
         System.out.println("결과 :출금이 성공되었습니다.");
 
     }
