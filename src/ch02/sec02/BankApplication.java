@@ -1,5 +1,7 @@
 package ch02.sec02;
 
+import ch08.sec14.problem14.A;
+
 import java.util.Scanner;
 
 public class BankApplication {
@@ -11,9 +13,6 @@ public class BankApplication {
         Scanner scanner = new Scanner(System.in);
         Account[] account = new Account[100];
         String[] accountList = new String[100];
-        for (int i = 0; i < 100; i++) {
-            account[i] = new Account();
-        }
 
 
         String menu = """
@@ -28,6 +27,7 @@ public class BankApplication {
             String m1 = scanner.nextLine();
             switch (m1) {
                 case "1" -> {
+                    account[i] = new Account();
                     System.out.println("""
                             ---------
                             계좌생성
