@@ -1,6 +1,5 @@
 package ch08.sec11.exam01;
 
-import ch07.sec12.problem09.C;
 
 public class CarExample {
     public static void main(String[] args) {
