@@ -12,5 +12,6 @@ public class Example {
         action(new A());
         action(new B());
         action(new C());
+
     }
 }
