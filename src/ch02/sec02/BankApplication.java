@@ -1,7 +1,5 @@
 package ch02.sec02;
 
-import ch08.sec14.problem14.A;
-
 import java.util.Scanner;
 
 public class BankApplication {
