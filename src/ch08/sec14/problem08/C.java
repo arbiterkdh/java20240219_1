@@ -9,4 +9,6 @@ public class C implements A {
     public void method2() {
         System.out.println("C - method2()");
     }
+
+
 }

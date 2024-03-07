@@ -1,5 +1,6 @@
 package ch08.sec14.problem08;
 
+
 public class Example {
     public static void action(A a) {
         a.method1();
@@ -11,5 +12,7 @@ public class Example {
     public static void main(String[] args) {
         action(new B());
         action(new C());
+
+
     }
 }
