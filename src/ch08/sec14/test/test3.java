@@ -23,4 +23,6 @@ public class test3 {
         System.out.println(x + "," + num);
 //        System.out.println(Integer.toString(x) + "x + " + Integer.toString(num));
     }
+
 }
+

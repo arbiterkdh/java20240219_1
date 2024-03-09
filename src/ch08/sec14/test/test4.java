@@ -1,6 +1,5 @@
 package ch08.sec14.test;
 
-import java.util.Arrays;
 
 public class test4 {
     public static void main(String[] args) {
