@@ -14,5 +14,9 @@ public class test5 {
         }
         sb.reverse();
         System.out.println(sb.toString());
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(a);
+        sb2.reverse();
+        System.out.println(sb2.toString());
     }
 }
