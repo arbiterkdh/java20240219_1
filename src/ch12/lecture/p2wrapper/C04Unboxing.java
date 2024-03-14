@@ -12,6 +12,9 @@ public class C04Unboxing {
         double f = e;
         double g = d; // auto unboxing 이 일어난 후에 long 에서 double 로 기본타입끼리 자동 타입변환이 일어남.
 
+        Integer h = null;
+//        int i = h; // auto unboxing 이 일어나지만 컴파일시 nullPointerException 오류 발생.
+
         System.out.println("실행 종료");
     }
 }
