@@ -2,6 +2,7 @@ package ch13.sec02.exam03;
 
 public class GenericExample {
     public static void main(String[] args) {
+        // 제네릭 타입 파라미터에 타입을 명시하지 않으면 가장 상위 타입인 Object 로 결정됨.
         Box box1 = new Box();
         box1.content = "100";
         Box box2 = new Box();
