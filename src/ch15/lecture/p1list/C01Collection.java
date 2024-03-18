@@ -1,4 +1,4 @@
-package c15.lecture.p1list;
+package ch15.lecture.p1list;
 
 public class C01Collection {
     public static void main(String[] args) {

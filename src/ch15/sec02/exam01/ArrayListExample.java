@@ -1,4 +1,4 @@
-package c15.sec02.exam01;
+package ch15.sec02.exam01;
 
 import java.util.*;
 
@@ -28,5 +28,7 @@ public class ArrayListExample {
         for (Board b : list) {
             System.out.println(b.getSubject() + "\t" + b.getContent() + "\t" + b.getWriter());
         }
+
+        list.forEach(System.out::println);
     }
 }
