@@ -9,6 +9,22 @@ public class Student implements Comparable<Student> {
         this.score = score;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
     @Override
     public int compareTo(Student o) {
         return this.score - o.score;
