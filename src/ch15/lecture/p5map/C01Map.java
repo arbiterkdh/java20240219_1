@@ -1,8 +1,11 @@
 package ch15.lecture.p5map;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 public class C01Map {
     public static void main(String[] args) {
@@ -68,7 +71,13 @@ public class C01Map {
         System.out.println("####keySet && 향상된 for 활용");
         Set<String> keys = map.keySet();
         // forEach
+        keys.forEach((s) -> System.out.println(s + ":" + map.get(s)));
         // iterator
+        Iterator<String> iterator = keys.iterator();
+        Iterator<String> iterator2 = keys.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next() + ":" + map.get(iterator2.next()));
+        }
         // enhanced for
         for (String key : keys) {
             System.out.println(key + ":" + map.get(key));
@@ -78,6 +87,7 @@ public class C01Map {
         System.out.println("### entrySet && 향상된 for 활용");
         Set<Map.Entry<String, String>> entries = map.entrySet();
         // forEach
+        entries.forEach((x) -> System.out.println(x.getKey() + ":" + x.getValue()));
         // iterator
         // enhanced for
         for (Map.Entry<String, String> entry : entries) {
