@@ -73,10 +73,10 @@ public class C01Map {
         // forEach
         keys.forEach((s) -> System.out.println(s + ":" + map.get(s)));
         // iterator
-        Iterator<String> iterator = keys.iterator();
+        Iterator<String> iterator1 = keys.iterator();
         Iterator<String> iterator2 = keys.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next() + ":" + map.get(iterator2.next()));
+        while (iterator1.hasNext()) {
+            System.out.println(iterator1.next() + ":" + map.get(iterator2.next()));
         }
         // enhanced for
         for (String key : keys) {
@@ -89,6 +89,10 @@ public class C01Map {
         // forEach
         entries.forEach((x) -> System.out.println(x.getKey() + ":" + x.getValue()));
         // iterator
+        Iterator<Map.Entry<String, String>> iterator3 = entries.iterator();
+        while (iterator3.hasNext()) {
+            System.out.println(iterator3.next());
+        }
         // enhanced for
         for (Map.Entry<String, String> entry : entries) {
             System.out.println(entry.getKey() + ":" + entry.getValue());

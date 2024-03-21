@@ -14,13 +14,12 @@ public class MapExample {
         String name = null;
         int maxScore = 0;
         int totalScore = 0;
-        String id = "";
 
         Set<String> set = map.keySet();
         for (String key : set) {
             if (maxScore < map.get(key)) {
                 maxScore = map.get(key);
-                id = key;
+                name = key;
             }
             totalScore += map.get(key);
         }
@@ -28,6 +27,6 @@ public class MapExample {
 
         System.out.println("평균 점수: " + totalScore / map.size());
         System.out.println("최고 점수: " + maxScore);
-        System.out.println(id);
+        System.out.println(name);
     }
 }
