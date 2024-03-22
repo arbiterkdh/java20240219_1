@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class C01IntStream {
     public static void main(String[] args) {
@@ -45,9 +46,17 @@ public class C01IntStream {
         int[] array = Arrays.stream(arr)
                 .toArray();
         System.out.println("array = " + Arrays.toString(array));
+
+
         // 중간연산
-        
-        // boxed
+
+
+        // boxed : IntStream -> Stream<Integer>
+        Stream<Integer> boxed = Arrays.stream(arr)
+                .boxed();
+        long count = boxed.count();
+        System.out.println("count = " + count);
+
         //
     }
 }
