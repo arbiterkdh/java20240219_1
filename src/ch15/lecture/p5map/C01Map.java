@@ -1,9 +1,6 @@
 package ch15.lecture.p5map;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -21,6 +18,20 @@ public class C01Map {
         map.put("spring", "java framework");
         map.put("react", "frontend library");
         map.put("css", "style sheet");
+
+        Map<Double, Integer> map1 = new HashMap<>();
+        map1.put(1.0, 1);
+        map1.put(5.0, 5);
+        map1.put(6.0, 6);
+        map1.put(2.0, 2);
+        map1.put(4.0, 4);
+
+
+        Set<Integer> keySet = new HashSet<>(map1.values());
+        System.out.println(keySet);
+
+        System.out.println(keySet);
+        System.out.println("asdasdasdasdasdasdasdasdasdasdasdads");
 
         System.out.println(map.size());
 
