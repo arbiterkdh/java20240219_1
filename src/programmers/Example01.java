@@ -15,7 +15,7 @@ public class Example01 {
 
 class Solution {
     public int[] solution(int N, int[] stages) {
-        int[] current = new int[N + 1];
+        int[] current = new int[N + 2];
 
         for (int player : stages) {
             current[player]++;
@@ -29,12 +29,13 @@ class Solution {
             failureRatioMap.put((double) reached / N, stage);
         }
 
-        Set<Double> set = failureRatioMap.keySet();
-
         int[] answer = new int[N];
+        int idx = 0;
 
-
-        set.forEach(failureRatioMap::get);
+        for (int value : failureRatioMap.values()) {
+            answer[idx] = value;
+            idx++;
+        }
 
 
         return answer;
