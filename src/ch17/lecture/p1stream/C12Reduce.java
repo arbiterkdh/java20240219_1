@@ -27,5 +27,6 @@ public class C12Reduce {
             System.out.println("reduce = " + reduce.get());
         }
 
+
     }
 }
