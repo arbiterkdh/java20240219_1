@@ -3,7 +3,7 @@ package programmers.problem03;
 public class Example {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.solution("1S2D*3T"));
+        System.out.println(solution.solution("1S*2T*3S"));
     }
 }
 
@@ -25,7 +25,7 @@ class Solution {
                     continue;
                 }
                 case '*' -> {
-                    if (idx == 0) {
+                    if (idx == 1) {
                         scores[idx - 1] *= 2;
                     } else {
                         scores[idx - 1] *= 2;
@@ -41,6 +41,7 @@ class Solution {
             }
             if (dartResult.charAt(i) == '1' && dartResult.charAt(i + 1) == '0') {
                 scores[idx] = 10;
+                i++;
             } else {
                 scores[idx] = dartResult.charAt(i) - '0';
             }
