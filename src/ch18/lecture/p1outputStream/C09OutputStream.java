@@ -11,14 +11,14 @@ public class C09OutputStream {
 
             os.write(23434); // 1 byte 쓰기
 
-            byte[] data = new byte[10];
+            byte[] data = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110};
 
-            os.write(data); // 10 bytes 쓰기
+            os.write(data); // 11 bytes 쓰기
             os.write(data, 0, 10); // 10 bytes 쓰기
             os.write(data, 5, 3); // 5번 인덱스부터 3개 쓰기 (3 bytes 쓰기)
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException();
         }
 
     }
