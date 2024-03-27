@@ -16,11 +16,13 @@ public class C06CopyFile {
             OutputStream os = new FileOutputStream(outputFileName);
 
             try (is; os) {
-                byte[] data = new byte[10];
+                byte[] data = new byte[1024];
                 int len;
+
                 while ((len = is.read(data)) != -1) {
                     os.write(data, 0, len);
                 }
+                os.flush();
             }
 
         } catch (IOException e) {
