@@ -16,7 +16,7 @@ public class C04BufferedOutputStream {
         byte[] data = new byte[16];
 
         long start = System.nanoTime();
-        for (int i = 0; i < 1024 * 1024; i++) {
+        for (int i = 0; i < 1024 * 1024 * 64; i++) {
             bos.write(data);
         }
         long end = System.nanoTime();

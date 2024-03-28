@@ -11,7 +11,7 @@ public class C03BufferedOutputStream {
 
         long start = System.nanoTime();
         byte[] data = new byte[16];
-        for (int i = 0; i < (1024 * 1024); i++) {
+        for (int i = 0; i < (1024 * 1024 * 64); i++) {
             os.write(data);
         }
         os.flush();
