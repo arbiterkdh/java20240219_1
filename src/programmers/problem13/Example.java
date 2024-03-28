@@ -14,8 +14,9 @@ public class Example {
         for (String gift : gifts) {
             String[] g = gift.split(" ");
             Integer give = map.get(g[0]) + 1;
-            Integer take = map.
-                    map.put(g[0], n);
+            map.put(g[0], give);
+            Integer take = map.get(g[0]) - 1;
+            map.put(g[0], take);
         }
     }
 }
