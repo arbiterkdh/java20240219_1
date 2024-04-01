@@ -4,7 +4,11 @@ import java.util.Arrays;
 
 public class ShellSort {
     public static void main(String[] args) {
-        int[] arr = new int[]{0, 6, 4, 7, 2, 9, 1, 3, 5, 8};
+        // 셸 정렬을 구현한 코드입니다.
+        int[] arr = new int[10];
+        for (int n = 0; n < arr.length; n++) {
+            arr[n] = (int) (Math.random() * 10);
+        }
         // 임의의 순서로 나열된 배열 할당.
         int swap = 0; // 조건에 맞으면 swap 하기 위한 변수 생성
         int gap = arr.length / 2;
@@ -19,9 +23,9 @@ public class ShellSort {
                     arr[i + gap] = swap;
                 }
             }
-            gap /= 2;
+            if (gap % 2 == 1 && gap != 1) gap = gap / 2 + 1;
+            else gap /= 2;
         }
         System.out.println(Arrays.toString(arr));
-        // 출력값 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     }
 }

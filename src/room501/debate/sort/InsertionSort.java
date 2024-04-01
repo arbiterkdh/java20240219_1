@@ -5,7 +5,10 @@ import java.util.Arrays;
 public class InsertionSort {
     public static void main(String[] args) {
         //삽입 정렬을 구현한 코드입니다.
-        int[] arr = new int[]{0, 6, 4, 7, 2, 9, 1, 3, 5, 8};
+        int[] arr = new int[10];
+        for (int n = 0; n < arr.length; n++) {
+            arr[n] = (int) (Math.random() * 10);
+        }
         // 임의의 순서로 나열된 배열 할당.
         int key; // 조건이 맞으면 삽입할 변수 생성
         // 변수명이 key 인 이유는,
@@ -29,6 +32,5 @@ public class InsertionSort {
             }
         }
         System.out.println(Arrays.toString(arr));
-        // 출력값 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     }
 }
