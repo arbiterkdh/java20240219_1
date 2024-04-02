@@ -11,7 +11,7 @@ public class QuickSort {
         }
         // 임의의 순서로 나열된 배열 할당.
 
-        quickSort(arr, 0, 9);
+        quickSort(arr, 0, arr.length - 1);
         // 퀵 정렬은 low 와 high 를 기준으로
         // 서로 교차하는 방향으로 탐색하면서 분할 정렬합니다.
 
