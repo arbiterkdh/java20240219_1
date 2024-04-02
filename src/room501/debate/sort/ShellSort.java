@@ -11,21 +11,26 @@ public class ShellSort {
         }
         // 임의의 순서로 나열된 배열 할당.
         int swap = 0; // 조건에 맞으면 swap 하기 위한 변수 생성
-        int gap = arr.length / 2;
         // 셸정렬은 gap 을 이용해서 배열을 부분정렬하고,
-        // 매 반복마다 gap 을 반씩 줄여나가며 정렬을 합니다.
-        while (gap > 0) {
-            // gap 을 기준으로 반복하기 때문에 while 문을 씁니다.
+        // 매 반복마다 gap 을 반씩 줄여나가는 게 정석이나,
+        // 여러 자료에서 말하길, gap 의 간격을 gap / 3 + 1 로
+        // 하는 것이 더 효율적이라고 합니다.
+        for (int gap = arr.length / 3 + 1; gap > 0; gap /= 3 + 1) {
+            // 매 반복시의 갭 간격 설정
             for (int i = 0; i < arr.length - gap; i++) {
-                if (arr[i] > arr[i + gap]) {
-                    swap = arr[i];
-                    arr[i] = arr[i + gap];
-                    arr[i + gap] = swap;
+                // 각 반복에서 필요한 만큼만 순환하게끔 범위 설정
+                for (int j = i + gap; j < arr.length; j += gap) {
+                    // 분리된 각 배열을 오름차순 정렬
+                    if (arr[i] > arr[j]) {
+                        // 조건에 맞으면 swap
+                        swap = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = swap;
+                    }
                 }
             }
-            if (gap % 2 == 1 && gap != 1) gap = gap / 2 + 1;
-            else gap /= 2;
         }
+
         System.out.println(Arrays.toString(arr));
     }
 }
