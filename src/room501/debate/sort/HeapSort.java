@@ -53,20 +53,37 @@ public class HeapSort {
     static void heapify(int[] arr, int size, int root) {
         // 원본 배열인 arr 과
         // heapify 를 수행할 범위를 지정할 size 를 인자로 받고,
-        // 비교 및 재배열을 위해 root 를 인자로 지정합니다.
+        // 비교 및 재배열을 위해 root 를 인자로 받습니다.
         int largest = root;
         int l = root * 2 + 1;
         int r = root * 2 + 2;
+        // root 값이 최대힙 혹은 최소힙을 만들기 위해
+        // 비교 과정에서 교체 될 수 있는데,
+        // 나중에 교체 됐는지 여부를 확인하기 위해
+        // root 값을 복사한 변수 largest 를 만들고,
+        // 자식노드 l 과 r 을 만듭니다.
 
         if (l < size && arr[l] > arr[largest]) largest = l;
         if (r < size && arr[r] > arr[largest]) largest = r;
+        // root 에 자식노드가 존재하지 않을 수 있기 때문에,
+        // size 와 비교를 해서 예외를 방지하고,
+        // l 이나 r 값이 부모 노드 값보다 크면
+        // largest 값을 바꿈으로써
+        // 비교 대상이 되는 인덱스를 바꿉니다.
 
         if (largest != root) {
+            // 원래 인덱스인 root 와
+            // 그것을 복사한 largest 가 같지 않으면
+            // 자식 노드와 인덱스 교체가 일어난 것입니다.
             int swap = arr[root];
             arr[root] = arr[largest];
             arr[largest] = swap;
+            // 따라서 실제 값을 교체해줌으로써,
+            // 최대힙 또는 최소힙을 만드는 heapify
+            // 를 수행합니다.
 
             heapify(arr, size, largest);
+            // 그리고 교체된 자식 노드에서 같은 과정을 반복합니다.
         }
     }
 }
