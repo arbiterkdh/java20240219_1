@@ -22,13 +22,9 @@ public class InsertionSort {
                 // 개념적인 삽입정렬과는 다르게,
                 // 코드로 구현했을 때는
                 // 뒤에서부터 비교해서 당겨오는 방식입니다.
-                if (arr[j] > key) {
-                    arr[j + 1] = arr[j];
-                    arr[j] = key;
-                } else {
-                    arr[j + 1] = key;
-                    break;
-                }
+                if (arr[j] <= key) break;
+                arr[j + 1] = arr[j];
+                arr[j] = key;
             }
         }
         System.out.println(Arrays.toString(arr));

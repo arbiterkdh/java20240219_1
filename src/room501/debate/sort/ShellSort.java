@@ -10,7 +10,7 @@ public class ShellSort {
             arr[n] = (int) (Math.random() * 10);
         }
         // 임의의 순서로 나열된 배열 할당.
-        int swap = 0; // 조건에 맞으면 swap 하기 위한 변수 생성
+        int swap; // 조건에 맞으면 swap 하기 위한 변수 생성
         // 셸정렬은 gap 을 이용해서 배열을 부분정렬하고,
         // 매 반복마다 gap 을 반씩 줄여나가는 게 정석이나,
         // 여러 자료에서 말하길, gap 의 간격을 gap / 3 + 1 로
