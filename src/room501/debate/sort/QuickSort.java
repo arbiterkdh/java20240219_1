@@ -43,7 +43,7 @@ public class QuickSort {
         // 증가 혹은 감소하는 인덱스의 역할로써
         // left 와 right 를 지정합니다.
 
-        while (left <= right) {
+        while (left < right) {
             // left 와 right 가 같아지면
             // 서로 위치가 교차하는 것이기 때문에,
             // 반복을 종료합니다.
