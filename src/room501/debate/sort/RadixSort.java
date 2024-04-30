@@ -6,9 +6,8 @@ public class RadixSort {
     public static void main(String[] args) {
         // 기수 정렬을 구현한 코드입니다.
         int[] arr = new int[10];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random() * 10);
-        }
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = (int) (Math.random() * 1000);
         // 임의의 순서로 나열된 배열 할당.
         radixSort(arr, arr.length);
         // 기수 정렬은 큐를 이용하거나,
@@ -25,20 +24,20 @@ public class RadixSort {
         // 기수 정렬은 숫자의 단위를 X10 씩 옮겨가며 정렬합니다.
         // 따라서 몇 자리 단위 까지 정렬해야 하는지
         // 알기 위해 최대값을 받을 변수를 할당합니다.
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++)
             // 최대값을 찾는 간단한 반복문입니다.
             if (max < arr[i]) max = arr[i];
-        }
-        for (int scope = 1; max / scope > 0; scope *= 10) {
+
+        for (int scope = 1; max / scope > 0; scope *= 10)
             // 확인한 최대값을 이용해,
             // 1의 단위부터 정렬을 시작하는 반복문입니다.
             // scope 는 지정된 단위를 가리키는 변수이고,
             // max 의 단위보다 커지면 종료됩니다.
             countSort(arr, size, scope);
-            // countSort 라고 이름 지은
-            // 내부 메소드를 반복적으로 호출해서,
-            // 해당 scope 별로 정렬을 수행합니다.
-        }
+        // countSort 라고 이름 지은
+        // 내부 메소드를 반복적으로 호출해서,
+        // 해당 scope 별로 정렬을 수행합니다.
+
     }
 
     static void countSort(int[] arr, int size, int scope) {
@@ -55,21 +54,19 @@ public class RadixSort {
         // 반복문이 많이 등장해서 가독성을 위해 변수를
         // 위에서 먼저 만들었습니다.
 
-        for (i = 0; i < size; i++)
-            bucket[(arr[i] / scope) % 10]++;
+        for (i = 0; i < size; i++) bucket[(arr[i] / scope) % 10]++;
         // arr[i] 의 현재 자리 값만 필요하기 때문에,
         // scope 로 나눠서 현재 정렬할 자리를 1의 자리로 오게 하고,
         // % 10 으로 1의 자리 값만을 받아서,
         // 해당 bucket 의 인덱스를 증가시키는 반복문입니다.
 
-        for (i = 1; i < 10; i++)
-            bucket[i] += bucket[i - 1];
+        for (i = 1; i < 10; i++) bucket[i] += bucket[i - 1];
         // 큐의 FIFO 를 구현하기 위해
         // 누적합을 먼저 만드는 반복문입니다.
 
-        for (i = 0; i < size; i++) {
-            sorted[bucket[(arr[i] / scope) % 10] - 1] = arr[i];
-            bucket[(arr[i] / scope % 10)]--;
+        for (i = size - 1; i >= 0; i--) {
+            sorted[bucket[arr[i] / scope % 10] - 1] = arr[i];
+            bucket[arr[i] / scope % 10]--;
             // 복잡해 보이고 실제로도 약간 복잡한데,
             // (arr[i] / scope) % 10 는 위에서 설명한 대로,
             // 현재 자리 값만 받아오는 것이고,

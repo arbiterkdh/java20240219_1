@@ -12,40 +12,52 @@ import java.util.HashMap;
 import java.util.Stack;
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Practice {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
-        st = new StringTokenizer(br.readLine());
-        br.close();
+        int N = Integer.parseInt(br.readLine());
         int[] arr = new int[N];
-        int result = 0, temp = 0;
 
-        for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-        }
+        for (int i = 0; i < N; i++)
+            arr[i] = Integer.parseInt(br.readLine());
 
-        run:
-        for (int i = 0; i < N - 2; i++) {
-            for (int j = i + 1; j < N - 1; j++) {
-                for (int k = j + 1; k < N; k++) {
-                    if (arr[i] + arr[j] + arr[k] > M) break;
-                    temp = arr[i] + arr[j] + arr[k];
-                }
-                if (temp > result) result = temp;
-                if (result == M) break run;
-            }
-        }
+        br.close();
+        int max = 0;
+        for (int i = 0; i < N; i++)
+            if (arr[i] > max) max = arr[i];
 
-        bw.write(result + "");
+        for (int scope = 1; scope <= max; scope *= 10)
+            radixSort(arr, scope, N);
+
+        for (int i = 0; i < N; i++)
+            bw.write(arr[i] + "\n");
+
         bw.flush();
         bw.close();
     }
+
+    static void radixSort(int[] arr, int scope, int size) {
+        int[] bucket = new int[10];
+        int[] sorted = new int[size];
+        int i;
+
+        for (i = 0; i < size; i++) bucket[arr[i] / scope % 10]++;
+
+        for (i = 1; i < 10; i++) bucket[i] += bucket[i - 1];
+
+        for (i = size - 1; i >= 0; i--) {
+            sorted[bucket[arr[i] / scope % 10] - 1] = arr[i];
+            bucket[arr[i] / scope % 10]--;
+        }
+        for (i = 0; i < size; i++) arr[i] = sorted[i];
+
+    }
 }
+
 
 
 
