@@ -5,44 +5,51 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.util.Arrays;
-import java.util.StringTokenizer;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Stack;
 import java.util.Queue;
 import java.util.LinkedList;
-import java.util.Set;
-import java.util.HashSet;
 
 public class Practice {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int N = Integer.parseInt(br.readLine());
-        int[] arr = new int[N];
+        Queue<Integer> pQueue = new LinkedList<>(), nQueue = new LinkedList<>();
 
-        for (int i = 0; i < N; i++)
-            arr[i] = Integer.parseInt(br.readLine());
-
+        int cnt = N;
+        while (cnt-- > 0) {
+            int n = Integer.parseInt(br.readLine());
+            if (n > 0) pQueue.add(n);
+            else nQueue.add(n);
+        }
         br.close();
-        int max = 0;
-        for (int i = 0; i < N; i++)
-            if (arr[i] > max) max = arr[i];
 
-        for (int scope = 1; scope <= max; scope *= 10)
-            radixSort(arr, scope, N);
+        int[] pArr = new int[pQueue.size()], nArr = new int[nQueue.size()];
 
-        for (int i = 0; i < N; i++)
-            bw.write(arr[i] + "\n");
+        for (int i = 0; i < pQueue.size(); i++) pArr[i] = pQueue.poll();
+        for (int i = 0; i < nQueue.size(); i++) nArr[i] = nQueue.poll();
 
+        radixSort(nArr, nArr.length);
+        radixSort(pArr, pArr.length);
+
+        for (int k : nArr) bw.write(k + "\n");
+        for (int j : pArr) bw.write(j + "\n");
         bw.flush();
         bw.close();
     }
 
-    static void radixSort(int[] arr, int scope, int size) {
+    static void radixSort(int[] arr, int size) {
+        int max = 0;
+        for (int i = 0; i < size; i++)
+            if (arr[i] > Math.abs(max)) max = arr[i];
+
+        for (int scope = 1; scope <= Math.abs(max); scope *= 10) {
+            countSort(arr, scope, size);
+        }
+    }
+
+    static void countSort(int[] arr, int scope, int size) {
         int[] bucket = new int[10];
-        int[] sorted = new int[size];
+        int[] sorted = new int[size + 1];
         int i;
 
         for (i = 0; i < size; i++) bucket[arr[i] / scope % 10]++;
@@ -50,10 +57,11 @@ public class Practice {
         for (i = 1; i < 10; i++) bucket[i] += bucket[i - 1];
 
         for (i = size - 1; i >= 0; i--) {
-            sorted[bucket[arr[i] / scope % 10] - 1] = arr[i];
+            sorted[bucket[arr[i] / scope % 10]] = arr[i];
             bucket[arr[i] / scope % 10]--;
         }
-        for (i = 0; i < size; i++) arr[i] = sorted[i];
+
+        for (i = 0; i < size; i++) arr[i] = sorted[i + 1];
 
     }
 }
