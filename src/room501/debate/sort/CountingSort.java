@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 public class CountingSort {
     public static void main(String[] args) {
-        int[] arr = new int[100];
+        int[] arr = new int[8];
         // 원본배열 arr
         for (int i = 0; i < arr.length; i++)
-            arr[i] = (int) (Math.random() * 100 + 1);
+            arr[i] = (int) (Math.random() * 8 + 1);
         // 각 원소에 랜덤한 값이 할당됐고, 양의 정수여야 하기 때문에 +1 을 했습니다.
 
         int max = findMax(arr);
